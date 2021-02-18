@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\Artisan;
 class WebsitesController extends Controller
 {
     public function publishPost(PublishPostRequest $request) {
-        Artisan::call('emails:subscribers');
-        dd();
         $data = $request->only(['website_id', 'title', 'description']);
 
         $post = Post::create($data);
